@@ -26,6 +26,45 @@ This repo pins **`hackathon-brown-eagle-55/zava-agent-config@^1.0.0`** via [`apm
 
 Run `apm install` after cloning to materialize them into your harness.
 
+## API reference
+
+### `POST /api/cart/promo`
+
+Applies a percentage-discount promo code to a cart and returns the full set of
+totals.  This is a public endpoint — no authentication required.
+
+**Request body**
+
+```json
+{
+  "items": [{ "productId": "abc", "quantity": 2, "unitPriceCents": 1500 }],
+  "promoCode": "WELCOME10",
+  "region": "GB"
+}
+```
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `items` | `CartItem[]` | 1–50 items.  Each item needs `productId`, `quantity` (1–99), and `unitPriceCents` (≥ 0). |
+| `promoCode` | `string` | Case-insensitive promo code (max 50 chars). |
+| `region` | `string` | Tax jurisdiction — `"GB"`, `"DE"`, `"US-CA"`, `"US-OR"`, or any other code (falls back to 10% tax). |
+
+**Responses**
+
+| Status | Body | Meaning |
+|--------|------|---------|
+| 200 | `{ subtotalCents, discountCents, taxCents, totalCents, promoCode, discountPercent }` | Totals computed successfully. |
+| 400 | `{ error: "invalid_input", details: … }` | Request body failed schema validation. |
+| 422 | `{ error: "promo_code_not_found" }` | Promo code is not recognised. |
+| 422 | `{ error: "promo_minimum_not_met", minimumSubtotalCents: … }` | Cart subtotal is below the code's minimum. |
+
+**Active promo codes**
+
+| Code | Discount | Minimum cart value |
+|------|----------|--------------------|
+| `WELCOME10` | 10% | None |
+| `VIP25` | 25% | £100 (10 000 pence) |
+
 ## Local dev
 
 ```bash
