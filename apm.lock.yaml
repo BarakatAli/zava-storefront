@@ -50,7 +50,7 @@ dependencies:
   - .agents/skills/panel-review
   - .agents/skills/panel-review/SKILL.md
   deployed_file_hashes:
-    .agents/skills/panel-review/SKILL.md: sha256:8e33b93b22e9f7eaa589d22012e220310f7897aa846936c9d5ea5eec04640b15
+    .agents/skills/panel-review/SKILL.md: sha256:cdbe6331b2f8aeeff2e7128c052b8c7095c3b7e2397af8c63cc80d4b776a4f44
   content_hash: sha256:4e0c2476a3309da079770fddb3ad6742c4506382acdde5ea1b33596d72ca8b95
 - repo_url: hackathon-brown-eagle-55/zava-agent-config
   host: github.com
