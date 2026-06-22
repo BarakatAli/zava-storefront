@@ -64,6 +64,22 @@ A markdown report with two sections — one per persona — each containing:
 - [x] / [ ] PII masked in logs
 ```
 
+## Team guidelines
+
+Before running the review, read the three team-authored guideline files that
+extend the APM-provided secure-coding baseline:
+
+- `guidelines/security.md` — team-specific security rules (input validation,
+  secrets policy, PII logging, dependency pinning).
+- `guidelines/architecture.md` — layer boundaries, ADR requirements, testing
+  expectations, bounded-context rules.
+- `guidelines/documentation.md` — docstring requirements, README update policy,
+  API and ADR documentation obligations.
+
+Fold findings from these files into the architect and security sections of the
+report alongside the APM-baseline checks. Tag them with the same severity
+labels (`[BLOCKER]`, `[WARNING]`, `[INFO]`, `[design-flaw]`, etc.).
+
 ## Process
 
 1. **Read the diff.** `git diff --staged` is the source of truth, not the working tree.

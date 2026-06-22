@@ -31,9 +31,9 @@ INPUT
   │
   ▼
 2. LOAD guidelines (read once, thread through every step)
-   ├── .github/instructions/secure-coding-base.instructions.md   (security)
-   ├── .github/agents/architect.agent.md                         (architecture)
-   └── .github/instructions/docs-style-guide.instructions.md     (documentation)
+   ├── guidelines/security.md       (security rules)
+   ├── guidelines/architecture.md   (architecture rules)
+   └── guidelines/documentation.md  (documentation rules)
   │
   ▼
 3. BRANCH   git checkout -b feat/<slug>   (fix/<slug> for findings)
@@ -129,9 +129,9 @@ test(scope): <what test covers the new behaviour>
 
 ## Guideline compliance
 
-- **Security** (`secure-coding-base`): <one sentence confirming key controls>
-- **Architecture** (`architect.agent`): <one sentence on coupling / patterns>
-- **Documentation** (`docs-style-guide`): <one sentence on docstrings / pages updated>
+- **Security** (`guidelines/security.md`): <one sentence confirming key controls>
+- **Architecture** (`guidelines/architecture.md`): <one sentence on coupling / patterns>
+- **Documentation** (`guidelines/documentation.md`): <one sentence on docstrings / pages updated>
 
 ## Checks
 
@@ -154,9 +154,9 @@ test(scope): <what test covers the new behaviour>
    text, parse it directly.
 
 2. **Load all three guideline files** before writing any code:
-   - `.github/instructions/secure-coding-base.instructions.md`
-   - `.github/agents/architect.agent.md`
-   - `.github/instructions/docs-style-guide.instructions.md`
+   - `guidelines/security.md`
+   - `guidelines/architecture.md`
+   - `guidelines/documentation.md`
 
 3. **Scope-check.** Split the work item into:
    - **In scope:** changes you can make safely within the stated boundaries.
@@ -252,6 +252,6 @@ test(scope): <what test covers the new behaviour>
 
 - `panel-review` skill — generates the findings list that this skill consumes
 - `incident-to-pr` skill — purpose-built for postmortem remediations
-- `.github/instructions/secure-coding-base.instructions.md` — security rules applied
-- `.github/agents/architect.agent.md` — architecture rules applied
-- `.github/instructions/docs-style-guide.instructions.md` — documentation rules applied
+- `guidelines/security.md` — security rules applied
+- `guidelines/architecture.md` — architecture rules applied
+- `guidelines/documentation.md` — documentation rules applied
